@@ -265,6 +265,11 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+.project-card .badge.private {
+  background: rgba(107, 114, 128, 0.12);
+  color: var(--text-muted);
+}
+
 .project-card h3 {
   margin: 0 0 0.4rem;
   color: var(--accent);
