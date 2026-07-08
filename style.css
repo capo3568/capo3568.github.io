@@ -1,0 +1,192 @@
+:root {
+  --accent: #4f46e5;
+  --text: #1a1a1a;
+  --text-muted: #6b7280;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --done: #16a34a;
+  --upcoming: #d1d5db;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+main, header, footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.hero {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goals-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.goals-list li:last-child {
+  border-bottom: none;
+}
+
+.goals-list strong {
+  color: var(--text);
+}
+
+.progress-tracker {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.progress-tracker li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  position: relative;
+}
+
+.progress-tracker .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--upcoming);
+  background: var(--bg);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.progress-tracker li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 22px;
+  width: 2px;
+  height: calc(100% - 6px);
+  background: var(--upcoming);
+}
+
+.progress-tracker li.done .dot {
+  border-color: var(--done);
+  background: var(--done);
+}
+
+.progress-tracker li.done::before {
+  background: var(--done);
+}
+
+.progress-tracker li.current .dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+.progress-tracker li.done .label {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--done);
+}
+
+.progress-tracker li.current .label {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.progress-tracker li.upcoming .label {
+  color: var(--text-muted);
+}
+
+.project-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-card {
+  display: block;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+}
+
+.project-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+footer {
+  text-align: center;
+  padding-top: 0;
+}
+
+footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  main, header, footer {
+    padding: 2rem 1.25rem;
+  }
+}
